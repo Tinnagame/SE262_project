@@ -3,6 +3,7 @@ html {
   background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
   min-height: 1000px;
   font-family: "helvetica neue";
+  overflow-x: hidden;
 }
 
 h1 {
@@ -169,4 +170,30 @@ span.psw {
 }
 a:link {
   text-decoration: none;
+}
+
+.gameCard {
+  max-height: 144px;
+  max-width: 312px;
+  margin-top: 24px;
+  margin-right: 16px;
+}
+.plusIcon {
+  float: right;
+  margin-bottom: 12px;
+}
+.nameText {
+  color: #eceff4;
+  margin-top: 16px;
+  margin-left: 16px;
+  padding: 0px;
+}
+.priceText {
+  color: #eceff4;
+  margin: 0px;
+}
+.lowerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
