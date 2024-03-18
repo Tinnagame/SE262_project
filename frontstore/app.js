@@ -18,17 +18,18 @@ app.get("/", async function (req, res) {
     newGameItems: items,
   });
 });
-/*
-app.post("/delete", async function (req, res) {
-  const result = await listItem
-    .delete(req.body.checkbox)
-    .then(() => {
-      console.log("delete success");
-    })
-    .then(() => {
-      res.redirect("/");
-    });
-});*/
+
+app.post("/", async function (req, res) {
+  console.log(req);
+});
+
+app.get("/game/:id", async function (req, res) {
+  const gameInfo = await gameItem.findById(req.params.id);
+  console.log(gameInfo);
+  res.render("information-page/information-page", {
+    gameInfo: gameInfo,
+  });
+});
 
 app.listen("3000", () => {
   console.log("Server is running on Port 3000.");

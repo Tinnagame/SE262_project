@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <body>
-  <div class="row">
+  <div class="row" style="background-color: #1f0e33">
     <% newGameItems.forEach((item) => {%>
-    <div
-      class="gameCard col-lg-3"
-      style="background-image: url('<%=item.img%>')"
-    >
-      <p class="nameText"><%=item.name%></p>
-      <div class="lowerDiv">
-        <p class="priceText"><%=item.price%></p>
-        <img class="plusIcon" src="/icons/+.png" />
+    <a href="/game/<%= item.id %>"
+      ><div
+        class="gameCard col-lg-3"
+        style="background-image: url('<%=item.img%>'); background-size: 100%"
+      >
+        <p class="nameText"><%=item.name%></p>
+        <div class="lowerDiv">
+          <p class="priceText"><%=item.price%></p>
+          <img class="plusIcon" src="/icons/+.png" />
+        </div>
       </div>
-    </div>
-
+    </a>
     <%});%>
   </div>
 </body>
