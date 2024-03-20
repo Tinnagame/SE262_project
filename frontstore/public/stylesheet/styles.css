@@ -175,8 +175,7 @@ a:link {
 .gameCard {
   max-height: 144px;
   max-width: 312px;
-  margin-top: 24px;
-  margin-right: 16px;
+  margin: 0px;
 }
 .plusIcon {
   float: right;
