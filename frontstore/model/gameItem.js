@@ -3,7 +3,7 @@ const BaseSQLModel = require("./baseSQLModel");
 // Create a new class for a specific table
 class GameModel extends BaseSQLModel {
   constructor() {
-    super("gameitems"); //table 'products'
+    super("product"); //table 'products'
   }
 
   speak() {
@@ -30,20 +30,20 @@ class GameModel extends BaseSQLModel {
 
   async setinitialItems() {
     const item1 = {
-      name: "Game title 1",
-      price: 123,
+      product_name: "Game title 1",
+      product_price: 123,
     };
     const item2 = {
-      name: "Game title 2",
-      price: 456,
+      product_name: "Game title 2",
+      product_price: 456,
     };
     const item3 = {
-      name: "Game title 3",
-      price: 789,
+      product_name: "Game title 3",
+      product_price: 789,
     };
     const item4 = {
-      name: "Game title 4",
-      price: 789,
+      product_name: "Game title 4",
+      product_price: 789,
     };
 
     const defaultItems = [item1, item2, item3, item4];
@@ -60,10 +60,16 @@ class GameModel extends BaseSQLModel {
   }
 
   async getGameName() {
-    const results = await this.findByColumn("name");
+    const results = await this.findByColumn("product_name");
 
     return results;
   }
+  /*
+  async findById() {
+    const results = await this.findByKey("product_id", "product_id");
+    return results;
+  }*/
+
   async getAllGames() {
     const results = await this.findAll();
 

@@ -9,14 +9,17 @@
     "
   >
     <% newGameItems.forEach((item) => {%>
-    <a class="col-3 gameCard" href="/game/<%= item.id %>"
+    <a class="col-3 gameCard" href="/game/<%= item.product_id %>"
       ><div
         class=""
-        style="background-image: url('<%=item.img%>'); background-size: 100%"
+        style="
+          background-image: url('<%=item.product_images%>');
+          background-size: 100%;
+        "
       >
-        <p class="nameText"><%=item.name%></p>
+        <p class="nameText"><%=item.product_name%></p>
         <div class="lowerDiv">
-          <p class="priceText">$<%=item.price%></p>
+          <p class="priceText">$<%=item.product_price%></p>
           <img
             style="margin-right: 16px; padding-top: 16px; position: relative"
             class="plusIcon"

@@ -22,18 +22,22 @@ app.set("view engine", "ejs");
 app.get("/", async function (req, res) {
   gameItem.defineInitialItems();
   const items = await gameItem.getAllGames();
-
+  console.log(items);
   res.render("list", {
     newGameItems: items,
   });
 });
 
 app.post("/", async function (req, res) {
-  console.log(req);
+  //console.log(req);
 });
 
-app.get("/game/:id", async function (req, res) {
-  const gameInfo = await gameItem.findById(req.params.id);
+app.get("/game/:product_id", async function (req, res) {
+  //console.log(req);
+  const gameInfo = await gameItem.findByKey(
+    "product_id",
+    req.params.product_id
+  );
   console.log(gameInfo);
   res.render("information-page/information-page", {
     gameInfo: gameInfo,
