@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+html {
+  height: 100%;
+}
+body {
+  margin: 0px;
+  height: 100%;
+}
+#map {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+}
+</style>
+        <script type="text/javascript" src="https://api.longdo.com/map/?key=1f9627ed38e4991a82ad697ded786f51""></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script>
+          function init() {
+            var map = new longdo.Map({
+              placeholder: document.getElementById('map'),
+            });
+            reverseGeocoding();
+          }
+
+          function reverseGeocoding() {
+            console.log("run");
+            $.ajax({
+                url: "https://api.longdo.com/map/services/address?",
+                dataType: "json",
+                type: "GET",
+                contentType: "application/json",
+                data: {
+                    key: "1f9627ed38e4991a82ad697ded786f51",
+                    lon: 18.800454,
+                    lat: 98.950403
+                },
+                success: function (results)
+                {
+                    console.log(results);
+                },
+                error: function (response)
+                {
+                    console.log("error");
+                    console.log(response);
+                }
+            });
+          }
+        </script>
+  </head>
+  <body onload="init();">
+      <div id="map"></div>
+  </body>
+</html>
