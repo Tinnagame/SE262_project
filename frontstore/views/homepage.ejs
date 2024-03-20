@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <body>
-  <div class="row" style="background-color: #1f0e33">
+  <div
+    class="row"
+    style="
+      background-color: #1f0e33;
+      justify-content: space-evenly;
+      padding-bottom: 48px;
+    "
+  >
     <% newGameItems.forEach((item) => {%>
-    <a href="/game/<%= item.id %>"
+    <a class="col-3 gameCard" href="/game/<%= item.id %>"
       ><div
-        class="gameCard col-lg-3"
+        class=""
         style="background-image: url('<%=item.img%>'); background-size: 100%"
       >
         <p class="nameText"><%=item.name%></p>
         <div class="lowerDiv">
-          <p class="priceText"><%=item.price%></p>
-          <img class="plusIcon" src="/icons/+.png" />
+          <p class="priceText">$<%=item.price%></p>
+          <img
+            style="margin-right: 16px; padding-top: 16px; position: relative"
+            class="plusIcon"
+            src="/icons/+.png"
+          />
         </div>
       </div>
     </a>
