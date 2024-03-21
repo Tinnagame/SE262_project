@@ -9,7 +9,7 @@ const UserDB = require("./model/userModel");
 
 const session = require("express-session");
 const mysqlStore = require("express-mysql-session")(session);
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 const options = db.config;
 options.createDataBaseTable = true;
 const sessionStore = new mysqlStore(options);

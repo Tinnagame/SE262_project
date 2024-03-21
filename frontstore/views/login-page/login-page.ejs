@@ -1,8 +1,32 @@
-<div class="row" style="">
-  <div class="col-lg-6" style="background-color: #1f0e33">
-    <img src="../icons/home.png" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+
+  <link rel="stylesheet" href="../../stylesheet/styles.css" />
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- custom CSS -->
+</head>
+
+<div class="row" style="width: 100vw; height: 100vh">
+  <div class="col-lg-6 left_pane" style="background-color: #1f0e33">
+    <img src="../icons/logo_large.png" />
   </div>
-  <div class="col-lg-6" style="background-color: #583559">
+  <div class="col-lg-6 right-pane">
     <p>Sign in</p>
 
     <form
@@ -16,17 +40,17 @@
         <div class="form-group mb-2">
           <input
             type="email"
-            class="form-control form-control-sm mx-sm-3"
+            class="form-control form-control-sm mx-sm-3 form-layout"
             name="email"
             id="email"
             placeholder="Enter email"
             required
           />
         </div>
-        <div class="form-group mx-sm-5 mb-2">
+        <div class="form-group mb-2">
           <input
             type="password"
-            class="form-control form-control-sm mx-sm-3"
+            class="form-control form-control-sm mx-sm-3 form-layout"
             name="password"
             id="password"
             placeholder="Password"
@@ -36,9 +60,44 @@
       </div>
       <input type="hidden" name="hide" id="hide" />
       <div style="color: red" id="err"></div>
-      <button type="submit" class="btn btn-primary" name="login" value="LOGIN">
-        Submit
+      <button
+        type="submit"
+        class="btn mx-sm-3 form-layout"
+        style="background-color: #5880a4; color: #ffffff"
+        name="login"
+        value="LOGIN"
+      >
+        Login
       </button>
     </form>
+    <div>
+      <p>
+        If you don't have an account Register you can
+        <a href="/register" style="color: #5880a4; font-weight: 500"
+          >Register here !</a
+        >
+      </p>
+    </div>
   </div>
 </div>
+
+<style>
+  .form-layout {
+    height: 62px;
+    width: 369px;
+    margin: 36px;
+  }
+  .left_pane {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .right-pane {
+    background-color: #583559;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+</style>
