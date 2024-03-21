@@ -3,9 +3,18 @@ const bodyParser = require("body-parser");
 const app = express();
 const gameItem = require("./model/gameItem");
 const db = require("./config/db");
+const Authen = require("./controllers/authen");
+
+const UserDB = require("./model/userModel");
+
+const session = require("express-session");
+const mysqlStore = require("express-mysql-session")(session);
 //const newItem = { name: "SE262!" };
 //listItem.create(newItem);
 app.use(express.static("public"));
+const options = db.config;
+options.createDataBaseTable = true;
+const sessionStore = new mysqlStore(options);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -17,6 +26,21 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(
+  session({
+    store: sessionStore,
+    secret: "jklfsodifjsktnwjasdp465dd",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 360000,
+      sameSite: true,
+      httpOnly: true,
+      secure: false,
+    },
+  })
+);
+
 app.set("view engine", "ejs");
 
 app.get("/", async function (req, res) {
@@ -26,6 +50,7 @@ app.get("/", async function (req, res) {
   res.render("list", {
     newGameItems: items,
   });
+  console.log("session-/: ", req.sessionID);
 });
 
 app.post("/", async function (req, res) {
