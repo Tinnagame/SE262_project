@@ -9,8 +9,6 @@ const UserDB = require("./model/userModel");
 
 const session = require("express-session");
 const mysqlStore = require("express-mysql-session")(session);
-//const newItem = { name: "SE262!" };
-//listItem.create(newItem);
 app.use(express.static("public"));
 const options = db.config;
 options.createDataBaseTable = true;
@@ -46,7 +44,7 @@ app.set("view engine", "ejs");
 app.get("/", async function (req, res) {
   gameItem.defineInitialItems();
   const items = await gameItem.getAllGames();
-  console.log(items);
+  //console.log(items);
   res.render("list", {
     newGameItems: items,
   });
@@ -67,6 +65,14 @@ app.get("/game/:product_id", async function (req, res) {
   res.render("information-page/information-page", {
     gameInfo: gameInfo,
   });
+});
+
+app.get("/login", async function (req, res) {
+  const { email, password } = req.body;
+  await Authen.userLogin(req, res, email, password);
+  console.log("session-/login: ", req.sessionID);
+
+  res.redirect("/");
 });
 
 app.get("/contact-us", async function (req, res) {
