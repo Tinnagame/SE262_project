@@ -61,7 +61,7 @@ app.get("/game/:product_id", async function (req, res) {
     "product_id",
     req.params.product_id
   );
-  console.log(gameInfo);
+
   res.render("information-page/information-page", {
     gameInfo: gameInfo,
   });
@@ -72,7 +72,7 @@ app.get("/login", async function (req, res) {
   await Authen.userLogin(req, res, email, password);
   console.log("session-/login: ", req.sessionID);
 
-  res.redirect("/");
+  res.render("login-page/login-page");
 });
 
 app.get("/contact-us", async function (req, res) {
