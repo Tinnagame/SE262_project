@@ -9,7 +9,7 @@
       color: #ffffff;
     "
   >
-    <%= gameInfo.name%>
+    <%= gameInfo.product_name %>
   </h1>
   <div
     class="row"
@@ -21,13 +21,13 @@
     "
   >
     <div class="col-6">
-      <img src="<%= gameInfo.img %>" style="width: 678px; height: 388px;"/>
+      <img src="<%= gameInfo.product_images %>" style="width: 678px; height: 388px;"/>
     </div>
     <div class="col-6">
       <div>
         <p style="text-align: center">ABOUT THIS GAME</p>
-        <p><%= gameInfo.description %></p>
-        <p style="text-align: center;color: #ECEFF4; font-size: 40px; font-style: italic;">$<%= gameInfo.price %></p>
+        <p><%= gameInfo.product_description %></p>
+        <p style="text-align: center;color: #ECEFF4; font-size: 40px; font-style: italic;">$<%= gameInfo.product_price %></p>
       </div>
       
         <form action="" method="post">
