@@ -1,10 +1,44 @@
+<%- include('./partials/header')%> <%- include('./partials/navbar')%>
 <div style="display: flex; flex-direction: row">
   <table>
+    <th>Catagory_id</th>
+    <th>Catagory_name</th>
+    <th>Delete</th>
+    <% category.forEach((item) => {%>
     <tr>
-      Catagory_id
+      <td><%= item.category_id %></td>
+      <td><%= item.category_name %></td>
+      <td>
+        <form method="post" action="/deleteCategory">
+          <button
+            id="deleteBtn"
+            type="button"
+            onclick="deleteCategory(`<%= item.category_id%>`)"
+            value="<%= item %>"
+          >
+            Delete
+          </button>
+        </form>
+      </td>
     </tr>
-    <tr>
-      Catagory_name
-    </tr>
+
+    <%});%>
   </table>
+
+  <div>
+    <form method="post" action="/addCategory">
+      <input
+        type="text"
+        name="newCategory"
+        placeholder="New item"
+        autocomplete="off"
+      />
+      <button type="submit">Add</button>
+    </form>
+  </div>
 </div>
+
+<script>
+  let deleteBtn = document.getElementById("deleteBtn");
+  deleteBtn.addEventListener("submit", (e) => {});
+</script>

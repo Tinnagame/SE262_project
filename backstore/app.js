@@ -53,7 +53,10 @@ app.get("/", async function (req, res) {
 
 app.get("/category", async function (req, res) {
   const items = await categoryDB.getAllCategory();
-  console.log(items);
+  res.render("category", {
+    category: items,
+  });
+  //console.log(items);
 });
 
 app.post("/", async function (req, res) {
@@ -80,6 +83,16 @@ app.get("/login", async function (req, res) {
   res.render("login-page/login-page");
 });
 
+app.post("/addCategory", async function (req, res) {
+  const newCategory = { category_name: req.body.newCategory };
+
+  categoryDB.create(newCategory);
+  res.redirect("/category");
+});
+
+app.post("/deleteCategory", async function (req, res) {
+  console.log(req.body);
+});
 app.listen("8080", () => {
   console.log("Server is running on Port 8080.");
 });
