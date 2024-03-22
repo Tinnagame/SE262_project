@@ -6,8 +6,8 @@ const db = require("./models/dbConnect");
 const Authen = require("./controllers/authen");
 
 const UserDB = require("./models/userModel");
-
 const session = require("express-session");
+const categoryDB = require("./models/categoryModel");
 const mysqlStore = require("express-mysql-session")(session);
 app.use(express.static(__dirname + "/public"));
 const options = db.config;
@@ -49,6 +49,11 @@ app.get("/", async function (req, res) {
     newGameItems: items,
   });
   console.log("session-/: ", req.sessionID);
+});
+
+app.get("/category", async function (req, res) {
+  const items = await categoryDB.getAllCategory();
+  console.log(items);
 });
 
 app.post("/", async function (req, res) {
