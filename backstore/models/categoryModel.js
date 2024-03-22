@@ -70,8 +70,6 @@ class CategoryModel extends BaseSQLModel {
     return results;
   }*/
 
-  async addNewProduct() {}
-
   async deleteCategoryById(req) {
     console.log(req);
   }
