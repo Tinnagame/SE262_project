@@ -44,7 +44,7 @@ app.set("view engine", "ejs");
 app.get("/", async function (req, res) {
   gameItem.defineInitialItems();
   const items = await gameItem.getAllGames();
-  //console.log(items);
+  console.log(items);
   res.render("list", {
     newGameItems: items,
   });
